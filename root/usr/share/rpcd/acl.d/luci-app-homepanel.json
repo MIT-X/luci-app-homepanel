@@ -1,0 +1,51 @@
+{
+ "luci-app-homepanel": {
+  "description": "HomePanel Dashboard",
+  "read": {
+   "ubus": {
+    "system": [
+     "info",
+     "board"
+    ],
+    "network.interface": [
+     "dump"
+    ],
+    "luci-rpc": [
+     "getNetworkDevices",
+     "getDHCPLeases",
+     "getHostHints"
+    ],
+    "luci": [
+     "getRealtimeStats",
+     "getVersion",
+     "getCPUInfo",
+     "getTempInfo"
+    ],
+    "luci.bandix": [
+     "getStatus",
+     "getTrafficUsageRanking"
+    ],
+    "file": [
+     "exec"
+    ]
+   },
+   "file": {
+    "/proc/stat": [
+     "read"
+    ],
+    "/proc/loadavg": [
+     "read"
+    ],
+    "/proc/net/arp": [
+     "read"
+    ],
+    "/sys/class/thermal/thermal_zone0/temp": [
+     "read"
+    ],
+    "/bin/ping -c 3 -W 1 -q 223.5.5.5": [
+     "exec"
+    ]
+   }
+  }
+ }
+}
